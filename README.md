@@ -1,5 +1,5 @@
-# BST 
-atm is an ATM machine implmented in Go.
+## atm 
+atm is an ATM  machine implmented in Go.
 
 ## Installation
 ```
@@ -8,7 +8,7 @@ atm is an ATM machine implmented in Go.
     $go mod tidy
     $go build ./...
     $./atm
-
+```
 ## Test 
 ```
         jk@jk-HP:~/dev/golang/atm$ go test -v ./...
