@@ -1,7 +1,7 @@
 package model
 
 import (
-  "errors"
+	"errors"
 	"time"
 )
 
@@ -12,19 +12,23 @@ type LoginRecord struct {
 }
 
 type LoginHistory struct {
-  records []LoginRecord
+	records []LoginRecord
 }
 
 var Log LoginHistory
 
 func (log *LoginHistory) Add(accountID string, t time.Time) {
-  log.records = append(log.records, LoginRecord{accountID, &t, nil})
+	log.records = append(log.records, LoginRecord{accountID, &t, nil})
+}
+
+func (log *LoginHistory) Logout() {
+	log.records = nil
 }
 
 func (log *LoginHistory) IsAuthorized(t time.Time) (error, string) {
-  if len(log.records) == 0 {
-    return errors.New("No login record found"), ""
-  } else {
-    return nil, log.records[len(log.records)-1].accountID
-  }
+	if len(log.records) == 0 {
+		return errors.New("No login record found"), ""
+	} else {
+		return nil, log.records[len(log.records)-1].accountID
+	}
 }

@@ -6,8 +6,8 @@ type AccountMap struct {
 
 func NewAccountMap(accounts []*Account) *AccountMap {
 	accountMap := &AccountMap{m: make(map[string]*Account)}
-  accountMap.Add(accounts)
-  return accountMap
+	accountMap.Add(accounts)
+	return accountMap
 }
 
 func (am *AccountMap) GetMap() map[string]*Account {
@@ -22,5 +22,5 @@ func (am *AccountMap) Add(accounts []*Account) bool {
 }
 
 func (am *AccountMap) GetAccount(accountID string) *Account {
-  return am.m[accountID]
+	return am.m[accountID]
 }

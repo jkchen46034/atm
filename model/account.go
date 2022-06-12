@@ -5,9 +5,9 @@ import (
 )
 
 type TxRecord struct {
-  Amount     int 
-  Balance_after int 
-  TxTime  time.Time
+	Amount       int
+	BalanceAfter int
+	TxTime       time.Time
 }
 
 type Account struct {
@@ -33,7 +33,7 @@ func (a *Account) GetBalance() int {
 	return a.balance
 }
 
-func (a *Account) GetTxHistory() []TxRecord{
+func (a *Account) GetTxHistory() []TxRecord {
 	return a.txRecords
 }
 
@@ -50,5 +50,5 @@ func (a *Account) Deposit(amount int) int {
 }
 
 func (a *Account) AddTx(amount int, balance_after int, t time.Time) {
-  a.txRecords = append([]TxRecord{TxRecord{amount, balance_after, t}}, a.txRecords ...)
+	a.txRecords = append([]TxRecord{TxRecord{amount, balance_after, t}}, a.txRecords...)
 }
