@@ -37,7 +37,7 @@ func demo() {
 
 	amount = 3000
 	fmt.Println("Withdrawing 3000")
-	err, amount_dispensed, balance := handler.Withdraw(amount)
+	err, amount_dispensed, balance, _ := handler.Withdraw(amount)
 	fmt.Println("Amount dispensed:", amount_dispensed)
 	fmt.Println("Current balance:", balance)
 
@@ -48,7 +48,7 @@ func demo() {
 
 	amount = 2000
 	fmt.Println("Withdrawing", amount)
-	err, amount_dispensed, balance = handler.Withdraw(amount)
+	err, amount_dispensed, balance, _ = handler.Withdraw(amount)
 	fmt.Println("Amount dispensed:", amount_dispensed)
 	fmt.Println("Current balance:", balance)
 
@@ -67,7 +67,7 @@ func demo() {
 
 	amount = 2000
 	fmt.Println("Withdrawing", amount)
-	err, amount_dispensed, balance = handler.Withdraw(amount)
+	err, amount_dispensed, balance, _ = handler.Withdraw(amount)
 	fmt.Println(err)
 
 	fmt.Println("Getting balance")

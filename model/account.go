@@ -17,6 +17,8 @@ type Account struct {
 	txRecords []TxRecord
 }
 
+const OVERDRAFT_FEE = 500
+
 func NewAccount(accountID string, pin string, initialBalance int) *Account {
 	return &Account{accountID, pin, initialBalance, []TxRecord{}}
 }
@@ -37,10 +39,13 @@ func (a *Account) GetTxHistory() []TxRecord {
 	return a.txRecords
 }
 
-func (a *Account) Withdraw(amount int) int {
-	a.balance = a.balance - amount
+func (a *Account) Withdraw(amount int) (balance int, overdraft_fee int) {
+	if a.balance-amount < 0 {
+		overdraft_fee = OVERDRAFT_FEE
+	}
+	a.balance = a.balance - amount - overdraft_fee
 	a.AddTx(-amount, a.balance, time.Now())
-	return a.balance
+	return a.balance, overdraft_fee
 }
 
 func (a *Account) Deposit(amount int) int {

@@ -1,12 +1,19 @@
 package handler
 
-func (handler *Handler) Deposit(amount int) (error, int) {
+import (
+	"fmt"
+)
+
+func (handler *Handler) Deposit(amount int) (err error, balance int, message *string) {
 	authorized, accountID := handler.IsAuthorized()
 	if authorized != nil {
-		return authorized, 0
+		return authorized, 0, nil
 	}
 	account := handler.accountMap.GetAccount(accountID)
-	balance := account.Deposit(amount)
+	balance = account.Deposit(amount)
+	handler.machine.Add(amount)
 
-	return nil, balance
+	var msg string
+	msg = fmt.Sprintf("Current balance: $%d.", balance)
+	return nil, balance, &msg
 }
