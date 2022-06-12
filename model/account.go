@@ -35,7 +35,7 @@ func (a *Account) GetBalance() int {
 	return a.balance
 }
 
-func (a *Account) GetTxHistory() []TxRecord {
+func (a *Account) GetHistory() []TxRecord {
 	return a.txRecords
 }
 

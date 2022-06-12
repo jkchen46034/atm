@@ -20,10 +20,10 @@ func Test_GetHistory_0(t *testing.T) {
 	err := handler.Login("2859459814", "7386")
 	assert.Nil(t, err)
 
-	err, records, message := handler.GetTxHistory()
+	err, records, message := handler.GetHistory()
 	assert.Nil(t, err)
 	assert.Equal(t, len(records), 0)
-	assert.Equal(t, *message, "No history found.")
+	assert.Equal(t, message, "No history found.")
 }
 
 func Test_GetHistory_1D(t *testing.T) {
@@ -40,8 +40,8 @@ func Test_GetHistory_1D(t *testing.T) {
 	assert.Nil(t, err)
 
 	handler.Deposit(20000)
-	err, records, message := handler.GetTxHistory()
+	err, records, message := handler.GetHistory()
 	assert.Nil(t, err)
 	assert.Equal(t, len(records), 1)
-	assert.NotEqual(t, len(*message), 0)
+	assert.NotEqual(t, len(message), 0)
 }

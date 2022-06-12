@@ -28,24 +28,24 @@ func Test_Integration_Test1(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, balance, 10024)
 
-	err, balance = handler.Deposit(3000)
+	err, balance, _ = handler.Deposit(3000)
 	assert.Nil(t, err)
 	assert.Equal(t, balance, 13024)
 
-	err, amount_dispensed, balance := handler.Withdraw(3000)
+	err, amount_dispensed, balance, _ := handler.Withdraw(3000)
 	assert.Nil(t, err)
 	assert.Equal(t, amount_dispensed, 2000)
 	assert.Equal(t, balance, 11024)
 
-	err, amount_dispensed, balance = handler.Withdraw(2000)
+	err, amount_dispensed, balance, _ = handler.Withdraw(2000)
 	assert.Equal(t, amount_dispensed, 2000)
 	assert.Equal(t, balance, 9024)
 
-	err, balance = handler.Deposit(10000)
+	err, balance, _ = handler.Deposit(10000)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, balance, 19024)
 
-	err, txHistory := handler.GetTxHistory()
+	err, txHistory, _ := handler.GetHistory()
 	assert.Equal(t, err, nil)
 	assert.Equal(t, len(txHistory), 4)
 	assert.Equal(t, txHistory[3].Amount, 3000)
@@ -61,15 +61,15 @@ func Test_Integration_Test1(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, accountID, "2859459814")
 
-	err, amount_dispensed, balance = handler.Withdraw(3000)
+	err, amount_dispensed, balance, _ = handler.Withdraw(3000)
 	assert.NotNil(t, err)
 
-	err, balance = handler.Deposit(3000)
+	err, balance, _ = handler.Deposit(3000)
 	assert.NotNil(t, err)
 
 	err, balance = handler.GetBalance()
 	assert.NotNil(t, err)
 
-	err, txHistory = handler.GetTxHistory()
+	err, txHistory, _ = handler.GetHistory()
 	assert.NotNil(t, err)
 }

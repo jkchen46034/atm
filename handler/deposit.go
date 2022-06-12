@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-func (handler *Handler) Deposit(amount int) (err error, balance int, message *string) {
+func (handler *Handler) Deposit(amount int) (err error, balance int, message string) {
 	authorized, accountID := handler.IsAuthorized()
 	if authorized != nil {
-		return authorized, 0, nil
+		return authorized, 0, ""
 	}
 	account := handler.accountMap.GetAccount(accountID)
 	balance = account.Deposit(amount)
@@ -15,5 +15,5 @@ func (handler *Handler) Deposit(amount int) (err error, balance int, message *st
 
 	var msg string
 	msg = fmt.Sprintf("Current balance: $%d.", balance)
-	return nil, balance, &msg
+	return nil, balance, msg
 }

@@ -32,8 +32,8 @@ func demo() {
 
 	fmt.Println("Depositing 3000")
 	amount := 3000
-	err, balance = handler.Deposit(amount)
-	fmt.Println("Current balance", balance)
+	err, balance, msg := handler.Deposit(amount)
+	fmt.Println(msg)
 
 	amount = 3000
 	fmt.Println("Withdrawing 3000")
@@ -43,20 +43,17 @@ func demo() {
 
 	amount = 4000
 	fmt.Println("Depositing", amount)
-	err, balance = handler.Deposit(amount)
-	fmt.Println("Current balance", balance)
+	err, balance, msg = handler.Deposit(amount)
+	fmt.Println(msg)
 
 	amount = 2000
 	fmt.Println("Withdrawing", amount)
-	err, amount_dispensed, balance, _ = handler.Withdraw(amount)
-	fmt.Println("Amount dispensed:", amount_dispensed)
-	fmt.Println("Current balance:", balance)
+	err, amount_dispensed, balance, msg = handler.Withdraw(amount)
+	fmt.Println(msg)
 
 	fmt.Println("Getting transaction history")
-	err, txHistory := handler.GetTxHistory()
-	for _, tx := range txHistory {
-		fmt.Println(tx.TxTime.Format("2006-01-02 15:04:05"), tx.Amount, tx.BalanceAfter)
-	}
+	err, _, msg = handler.GetHistory()
+	fmt.Println(msg)
 
 	err, accountID = handler.Logout()
 	if err == nil {
