@@ -1,18 +1,23 @@
 package model
 
 type Machine struct {
-	amount int
+	inventory int
 }
 
-func NewMachine(amount int) *Machine {
-	return &Machine{amount}
+func NewMachine(inventory int) *Machine {
+	return &Machine{inventory}
 }
 
-func (machine *Machine) GetAmount() int {
-	return machine.amount
+func (machine *Machine) GetInventory() int {
+	return machine.inventory
 }
 
-func (machine *Machine) SetAmount(amount int) bool {
-	machine.amount = amount
-	return true
+func (machine *Machine) SetInventory(inventory int) int {
+	machine.inventory = inventory
+	return machine.inventory
+}
+
+func (machine *Machine) Add(amount int) int {
+	machine.inventory += amount
+	return machine.inventory
 }
