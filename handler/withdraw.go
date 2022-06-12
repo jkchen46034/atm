@@ -36,9 +36,11 @@ func (handler *Handler) Withdraw(amount int) (err error, withdraw_amount int, ba
 
 	var msg string
 	if overdraft_fee == 0 {
-		msg = fmt.Sprintf("Amount dispensed: $%d. Current balance: $%d.", withdraw_amount, balance)
+		msg = fmt.Sprintf("Amount dispensed: $%d.%02d. Current balance: $%d.%02d.",
+			withdraw_amount/100, withdraw_amount%100, balance/100, balance%100)
 	} else {
-		msg = fmt.Sprintf("Amount dispensed: $%d. You have been charged overdraft fee of $%d. Current balance: $%d", withdraw_amount, overdraft_fee, balance)
+		msg = fmt.Sprintf("Amount dispensed: $%d.%02d. You have been charged overdraft fee of $%d.%02d. Current balance: $%d.%02d",
+			withdraw_amount/100, withdraw_amount%100, overdraft_fee/100, overdraft_fee%100, balance/100, balance%100)
 	}
 
 	return nil, withdraw_amount, balance, msg

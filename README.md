@@ -1,20 +1,21 @@
 ## atm 
-atm is an ATM  machine implmented in Go.
+atm is an ATM machine implmented in Go.
 
 ## Installation
 ```
     Download from git@github.com:jkchen46034/atm.git
 
     $go mod tidy
-    $go build ./...
+    $go build -o atm 
     $./atm
+
 ```
 ## Test 
 ```
         jk@jk-HP:~/dev/golang/atm$ go test -v ./...
 
-        === RUN   Test_Integration_Test1
-        --- PASS: Test_Integration_Test1 (0.00s)
+        === RUN   Test_Main_Demo
+        --- PASS: Test_Main_Demo (0.00s)
         PASS
         ok  	takeoff.com/atm	0.007s
         === RUN   Test_Deposit_Success
@@ -74,6 +75,62 @@ atm is an ATM  machine implmented in Go.
         jk@jk-HP:~/dev/golang/atm$ 
 
 ```
+## Demo()
+````
+
+        jk@jk-HP:~/dev/golang/atm$ go build -o atm
+        jk@jk-HP:~/dev/golang/atm$ ./atm
+        Account 2859459814 successfully authorized
+        Current balance $100.24
+        Withdrawing $90.00
+        Amount dispensed: $80.00. Current balance: $20.24.
+        Depositing $30.00
+        Current balance: $50.24.
+        Withdrawing $40.00
+        Amount dispensed: $40.00. Current balance: $10.24.
+        Depositing $40.00
+        Current balance: $50.24.
+        Withdrawing $30.00
+        Amount dispensed: $20.00. Current balance: $30.24.
+        Withdrawing $200.00
+        Amount dispensed: $200.00. You have been charged overdraft fee of $5.00. Current balance: $-174.-76
+        Withdrawing $400.00
+        Your account is overdrawn! You may not make withdrawals at this time.
+        Depositing $400.00
+        Current balance: $225.24.
+        Withdrawing $90.00
+        Amount dispensed: $80.00. Current balance: $145.24.
+        Getting transaction history
+        2022-06-12 16:22:47 -80.00 145.24
+        2022-06-12 16:22:47 400.00 225.24
+        2022-06-12 16:22:47 -200.00 -174.-76
+        2022-06-12 16:22:47 -20.00 30.24
+        2022-06-12 16:22:47 40.00 50.24
+        2022-06-12 16:22:47 -40.00 10.24
+        2022-06-12 16:22:47 30.00 50.24
+        2022-06-12 16:22:47 -80.00 20.24
+
+        Account 2859459814 logged out.
+        Withdrawing $20.00
+        Authorization required
+        Getting balance
+        Authorization required
+        Account 1434597300 successfully authorized
+        Current balance $90000.55
+        Withdrawing $20000.00
+        Amount dispensed: $10050.00. Current balance: $79950.55.
+        Withdrawing $10000.00
+        Unable to process your withdrawal at this time. 
+        Getting transaction history
+        2022-06-12 16:22:47 -10050.00 79950.55
+
+        Account 1434597300 logged out.
+        Account 2859459814 successfully authorized
+        Withdrawing $20.00
+        Unable to process your withdrawal at this time. 
+        jk@jk-HP:~/dev/golang/atm$ 
+
+````
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

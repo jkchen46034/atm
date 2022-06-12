@@ -13,7 +13,5 @@ func (handler *Handler) Deposit(amount int) (err error, balance int, message str
 	balance = account.Deposit(amount)
 	handler.machine.Add(amount)
 
-	var msg string
-	msg = fmt.Sprintf("Current balance: $%d.", balance)
-	return nil, balance, msg
+	return nil, balance, fmt.Sprintf("Current balance: $%d.%02d.", balance/100, balance%100)
 }

@@ -8,7 +8,7 @@ import (
 	"takeoff.com/atm/model"
 )
 
-func Test_Integration_Test1(t *testing.T) {
+func Test_Main_Demo(t *testing.T) {
 
 	accounts := []*model.Account{
 		model.NewAccount("2859459814", "7386", 10024),

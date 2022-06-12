@@ -20,12 +20,11 @@ func Test_Withdraw(t *testing.T) {
 	err := handler.Login("2859459814", "7386")
 	assert.Nil(t, err)
 
-	err, amount_dispensed, balance, message := handler.Withdraw(20000)
+	err, amount_dispensed, balance, _ := handler.Withdraw(20000)
 	assert.Nil(t, err)
 	assert.Equal(t, amount_dispensed, 20000)
 	assert.Equal(t, balance, 10000)
 	assert.Equal(t, handler.machine.GetInventory(), 23000)
-	assert.Equal(t, message, "Amount dispensed: $20000. Current balance: $10000.")
 }
 
 func Test_Withdraw_OnlyIn20(t *testing.T) {
@@ -41,12 +40,11 @@ func Test_Withdraw_OnlyIn20(t *testing.T) {
 	err := handler.Login("2859459814", "7386")
 	assert.Nil(t, err)
 
-	err, amount_dispensed, balance, message := handler.Withdraw(3000)
+	err, amount_dispensed, balance, _ := handler.Withdraw(3000)
 	assert.Nil(t, err)
 	assert.Equal(t, amount_dispensed, 2000)
 	assert.Equal(t, balance, 8000)
 	assert.Equal(t, handler.machine.GetInventory(), 38000)
-	assert.Equal(t, message, "Amount dispensed: $2000. Current balance: $8000.")
 }
 
 func Test_Withdraw_ATM_Inventory_Not_Enough(t *testing.T) {
@@ -62,12 +60,11 @@ func Test_Withdraw_ATM_Inventory_Not_Enough(t *testing.T) {
 	err := handler.Login("2859459814", "7386")
 	assert.Nil(t, err)
 
-	err, amount_dispensed, balance, message := handler.Withdraw(20000)
+	err, amount_dispensed, balance, _ := handler.Withdraw(20000)
 	assert.Nil(t, err)
 	assert.Equal(t, amount_dispensed, 10000)
 	assert.Equal(t, balance, 20000)
 	assert.Equal(t, handler.machine.GetInventory(), 0)
-	assert.Equal(t, message, "Amount dispensed: $10000. Current balance: $20000.")
 }
 
 func Test_Withdraw_ATM_Inventory_is_0(t *testing.T) {
@@ -101,11 +98,10 @@ func Test_Withdraw_Account_Overdraft(t *testing.T) {
 	err := handler.Login("2859459814", "7386")
 	assert.Nil(t, err)
 
-	err, withdraw_amount, balance, message := handler.Withdraw(12000)
+	err, withdraw_amount, balance, _ := handler.Withdraw(12000)
 	assert.Nil(t, err)
 	assert.Equal(t, withdraw_amount, 12000)
 	assert.Equal(t, balance, -2500)
-	assert.Equal(t, message, "Amount dispensed: $12000. You have been charged overdraft fee of $500. Current balance: $-2500")
 }
 
 func Test_Withdraw_Account_No_Fund(t *testing.T) {
