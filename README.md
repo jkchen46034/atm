@@ -10,6 +10,109 @@ atm is an ATM machine implmented in Go.
     $./atm
 
 ```
+## Execution
+````
+        jk@jk-HP:~/dev/golang/atm$ ./atm
+
+        > balance
+        Authorization required
+
+        > history
+        Authorization required
+
+        > withdraw 10000
+        Authorization required
+
+        > deposit 2000
+        Authorization required
+
+        > logout
+        No account is currently authorized
+
+        > authorize 2859459814 738
+        Authorization failed
+
+        > authorize 2859459814 7386
+        Account 2859459814 successfully authorized
+
+        > withdraw 8900
+        Amount dispensed: $80.00. Current balance: $20.24.
+
+        > withdraw 4000
+        Amount dispensed: $40.00. You have been charged overdraft fee of $5.00. Current balance: $-24.-76
+
+        > withdraw 8000
+        Your account is overdrawn! You may not make withdrawals at this time.
+
+        > deposit 20000
+        Current balance: $175.24.
+
+        > deposit 3500
+        Current balance: $210.24.
+
+        > history
+        2022-06-12 18:34:49 35.00 210.24
+        2022-06-12 18:34:36 200.00 175.24
+        2022-06-12 18:34:22 -40.00 -24.-76
+        2022-06-12 18:33:58 -80.00 20.24
+
+        > balance
+        Current balance $210.24
+
+        > logout
+        Account 2859459814 logged out.
+
+        > authorize 1434597300 4557
+        Account 1434597300 successfully authorized
+
+        > balance
+        Current balance $90000.55
+
+        > withdraw 2000000
+        Amount dispensed: $10115.00. Current balance: $79885.55.
+
+        > withdraw 2000000
+        Unable to process your withdrawal at this time.
+
+        > balance
+        Current balance $79885.55
+
+        > history
+        2022-06-12 18:41:39 -10115.00 79885.55
+
+        > logout
+        Account 1434597300 logged out.
+
+        > authorize 2859459814 7386
+        Account 2859459814 successfully authorized
+
+        > balance
+        Current balance $210.24
+
+        > withdraw 10000
+        Unable to process your withdrawal at this time.
+
+        > deposit 10000
+        Current balance: $310.24.
+
+        > withdraw 12000
+        Amount dispensed: $100.00. Current balance: $210.24.
+
+        > history
+        2022-06-12 18:44:39 -100.00 210.24
+        2022-06-12 18:44:20 100.00 310.24
+        2022-06-12 18:34:49 35.00 210.24
+        2022-06-12 18:34:36 200.00 175.24
+        2022-06-12 18:34:22 -40.00 -24.-76
+        2022-06-12 18:33:58 -80.00 20.24
+
+        > logout
+        Account 2859459814 logged out.
+
+````
+
+
+
 ## Test 
 ```
         jk@jk-HP:~/dev/golang/atm$ go test -v ./...
