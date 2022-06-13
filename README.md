@@ -1,14 +1,19 @@
-## atm 
-atm is an ATM machine implmented in Go.
-
+## ATM 
+````
+        ATM is an ATM machine implmented in Go.
+````
 ## Installation
-    Download from git@github.com:jkchen46034/atm.git
+````
+        Download from https://github.com/jkchen46034/atm
+````
+## Build
+````
+        $go mod tidy
+        $go build -o atm 
+````
 
-    $go mod tidy
-    $go build -o atm 
-    $./atm
-```
 ## Execution
+
 ````
         jk@jk-HP:~/dev/golang/atm$ ./atm
 
