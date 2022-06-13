@@ -93,6 +93,8 @@ func exec_withdraw_command(args []string, handler *handler.Handler) error {
 		return err
 	}
 
+	amount = amount * 100
+
 	err, _, _, msg := handler.Withdraw(amount)
 	if err == nil {
 		fmt.Println(msg)
@@ -110,6 +112,8 @@ func exec_deposit_command(args []string, handler *handler.Handler) error {
 	if err != nil {
 		return err
 	}
+
+	amount = amount * 100
 
 	err, _, msg := handler.Deposit(amount)
 	if err == nil {

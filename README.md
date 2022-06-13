@@ -23,10 +23,10 @@
         > history
         Authorization required
 
-        > withdraw 10000
+        > withdraw 100
         Authorization required
 
-        > deposit 2000
+        > deposit 20
         Authorization required
 
         > logout
@@ -38,19 +38,19 @@
         > authorize 2859459814 7386
         Account 2859459814 successfully authorized
 
-        > withdraw 8900
+        > withdraw 89
         Amount dispensed: $80.00. Current balance: $20.24.
 
-        > withdraw 4000
+        > withdraw 40
         Amount dispensed: $40.00. You have been charged overdraft fee of $5.00. Current balance: $-24.-76
 
-        > withdraw 8000
+        > withdraw 80
         Your account is overdrawn! You may not make withdrawals at this time.
 
-        > deposit 20000
+        > deposit 200
         Current balance: $175.24.
 
-        > deposit 3500
+        > deposit 35
         Current balance: $210.24.
 
         > history
@@ -71,10 +71,10 @@
         > balance
         Current balance $90000.55
 
-        > withdraw 2000000
+        > withdraw 20000
         Amount dispensed: $10115.00. Current balance: $79885.55.
 
-        > withdraw 2000000
+        > withdraw 20000
         Unable to process your withdrawal at this time.
 
         > balance
@@ -92,13 +92,13 @@
         > balance
         Current balance $210.24
 
-        > withdraw 10000
+        > withdraw 100
         Unable to process your withdrawal at this time.
 
-        > deposit 10000
+        > deposit 100
         Current balance: $310.24.
 
-        > withdraw 12000
+        > withdraw 120
         Amount dispensed: $100.00. Current balance: $210.24.
 
         > history
