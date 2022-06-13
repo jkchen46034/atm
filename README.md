@@ -1,6 +1,6 @@
 ## ATM 
 ````
-        ATM is an ATM machine implmented in Go.
+        ATM is an ATM machine implemented in Go.
 ````
 ## Installation
 ````
