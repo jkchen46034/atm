@@ -19,10 +19,13 @@ func (handler *Handler) GetHistory() (err error, records []model.TxRecord, messa
 	}
 
 	var msg string
-	for _, record := range records {
-		msg += fmt.Sprintf("%s %d.%02d %d.%2d\n", record.TxTime.Format("2006-01-02 15:04:05"),
+	for i, record := range records {
+		msg += fmt.Sprintf("%s %d.%02d %d.%2d", record.TxTime.Format("2006-01-02 15:04:05"),
 			record.Amount/100, record.Amount%100,
 			record.BalanceAfter/100, record.BalanceAfter%100)
+		if i < len(records)-1 {
+			msg += "\n"
+		}
 	}
 	return nil, records, msg
 }

@@ -26,6 +26,12 @@ func (handler *Handler) Withdraw(amount int) (err error, withdraw_amount int, ba
 	}
 
 	withdraw_amount = amount - amount%2000
+	if withdraw_amount < 2000 {
+		balance := account.GetBalance()
+		msg := fmt.Sprintf("Amount dispensed: $00.00. Current balance: $%d.%02d.", balance/100, balance%100)
+		return nil, 0, balance, msg
+	}
+
 	if withdraw_amount > inventory {
 		withdraw_amount = inventory
 	}
