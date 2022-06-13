@@ -2,13 +2,11 @@
 atm is an ATM machine implmented in Go.
 
 ## Installation
-```
     Download from git@github.com:jkchen46034/atm.git
 
     $go mod tidy
     $go build -o atm 
     $./atm
-
 ```
 ## Execution
 ````
@@ -109,10 +107,10 @@ atm is an ATM machine implmented in Go.
         > logout
         Account 2859459814 logged out.
 
+        > exit
+        jk@jk-HP:~/dev/golang/atm$ 
+
 ````
-
-
-
 ## Test 
 ```
         jk@jk-HP:~/dev/golang/atm$ go test -v ./...
@@ -180,9 +178,9 @@ atm is an ATM machine implmented in Go.
 ```
 ## Demo()
 ````
-
-        jk@jk-HP:~/dev/golang/atm$ go build -o atm
         jk@jk-HP:~/dev/golang/atm$ ./atm
+        > demo
+
         Account 2859459814 successfully authorized
         Current balance $100.24
         Withdrawing $90.00
@@ -231,8 +229,9 @@ atm is an ATM machine implmented in Go.
         Account 2859459814 successfully authorized
         Withdrawing $20.00
         Unable to process your withdrawal at this time. 
-        jk@jk-HP:~/dev/golang/atm$ 
 
+        > exit
+        jk@jk-HP:~/dev/golang/atm$ 
 ````
 
 ## Contributing
