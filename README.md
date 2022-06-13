@@ -114,6 +114,23 @@
 
         > exit
         jk@jk-HP:~/dev/golang/atm$ 
+    
+        ---- demonstrating timer timeout ----
+
+        jk@jk-HP:~/dev/golang/atm$ ./atm
+
+        > authorize 2859459814 7386
+        Account 2859459814 successfully authorized
+
+        > balance
+        Current balance $100.24
+
+        > history
+        No history found.
+
+        (wait for more than 2 minutes)
+        > history
+        Authorization required
 
 ````
 ## Test 
@@ -142,6 +159,8 @@
         --- PASS: TestLogout_0 (0.00s)
         === RUN   TestLogout_No_one_login
         --- PASS: TestLogout_No_one_login (0.00s)
+        === RUN   Test_Timer
+        --- PASS: Test_Timer (0.10s)
         === RUN   Test_Withdraw
         --- PASS: Test_Withdraw (0.00s)
         === RUN   Test_Withdraw_OnlyIn20
@@ -155,7 +174,7 @@
         === RUN   Test_Withdraw_Account_No_Fund
         --- PASS: Test_Withdraw_Account_No_Fund (0.00s)
         PASS
-        ok  	takeoff.com/atm/handler	0.008s
+        ok  	takeoff.com/atm/handler	0.110s
         === RUN   TestAccount_Create
         --- PASS: TestAccount_Create (0.00s)
         === RUN   TestAccount_GetAccountID

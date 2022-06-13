@@ -25,6 +25,8 @@ func shell() {
 	// iterate to read commands
 	reader := bufio.NewReader(os.Stdin)
 	for {
+		handler.Timer.Reset()
+
 		fmt.Print("> ")
 		input, err := reader.ReadString('\n')
 		if err != nil {

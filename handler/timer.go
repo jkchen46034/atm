@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"time"
 
 	"takeoff.com/atm/model"
@@ -26,8 +25,7 @@ func NewTimer() *Timer {
 func (t *Timer) GoRoutine() {
 	for {
 		select {
-		case ti := <-t.ticker.C:
-			fmt.Println("timer fired", ti)
+		case <-t.ticker.C:
 			model.Log.Logout()
 		case command := <-t.commands:
 			t.exec(command)
@@ -54,7 +52,7 @@ func (t *Timer) exec(command string) {
 	switch command {
 	case "RESET_TIMER":
 		t.ticker.Stop()
-		t.ticker = time.NewTicker(time.Duration(10 * time.Second))
+		t.ticker = time.NewTicker(time.Duration(2 * time.Minute))
 		return
 	case "STOP_TIMER":
 		t.ticker.Stop()

@@ -9,6 +9,6 @@ func Test_Timer(t *testing.T) {
 
 	timer := NewTimer()
 	timer.Reset()
-	time.Sleep(1 * time.Second)
+	time.Sleep(100 * time.Millisecond)
 	timer.Close()
 }
